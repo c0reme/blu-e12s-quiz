@@ -20,7 +20,7 @@ const Settings = () => {
           Time Limit (s):
           <input
             type="number"
-            class="max-w-16 text-center border rounded-md"
+            class="w-12 md:w-16 text-center border rounded-md"
             value={timeLimit()}
             onInput={(e) => setTimeLimit(parseInt(e.currentTarget.value))}
           />

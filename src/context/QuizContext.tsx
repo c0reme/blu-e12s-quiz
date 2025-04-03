@@ -2,12 +2,12 @@ import { createContext, createSignal, useContext } from "solid-js";
 import type { ParentComponent } from "solid-js";
 
 const debuffs = [
-  { key: "Dark_Water_III", icon: "imgs/Dark_Water_III.png" },
-  { key: "Shadoweye", icon: "imgs/Shadoweye.png" },
-  { key: "16_Dark_Blizzard_III", icon: "imgs/Dark_Blizzard_III.png", timer: 16 },
-  { key: "29_Dark_Blizzard_III", icon: "imgs/Dark_Blizzard_III.png", timer: 29 },
-  { key: "16_Dark_Fire_III", icon: "imgs/Dark_Fire_III.png", timer: 16 },
-  { key: "29_Dark_Fire_III", icon: "imgs/Dark_Fire_III.png", timer: 29 },
+  { key: "Dark_Water_III", icon: "/blu-e12s-quiz/imgs/Dark_Water_III.png" },
+  { key: "Shadoweye", icon: "/blu-e12s-quiz/imgs/Shadoweye.png" },
+  { key: "16_Dark_Blizzard_III", icon: "/blu-e12s-quiz/imgs/Dark_Blizzard_III.png", timer: 16 },
+  { key: "29_Dark_Blizzard_III", icon: "/blu-e12s-quiz/imgs/Dark_Blizzard_III.png", timer: 29 },
+  { key: "16_Dark_Fire_III", icon: "/blu-e12s-quiz/imgs/Dark_Fire_III.png", timer: 16 },
+  { key: "29_Dark_Fire_III", icon: "/blu-e12s-quiz/imgs/Dark_Fire_III.png", timer: 29 },
 ];
 
 const positions = {
@@ -145,14 +145,12 @@ export const QuizProvider: ParentComponent = (props) => {
 
   const resetTimer = () => {
     if (timerInterval) clearInterval(timerInterval);
-    setTimeLeft(30);
-    setTimerActive(false);
+    setTimeLeft(timeLimit());
   };
 
   const selectRandomDebuff = () => {
     const i = Math.floor(Math.random() * debuffs.length);
-    if (debuffs[i] === debuff()) selectRandomDebuff();
-
+    if (debuffs[i] === debuff()!) selectRandomDebuff();
     setDebuff(debuffs[i]);
   };
 
@@ -163,7 +161,11 @@ export const QuizProvider: ParentComponent = (props) => {
     const correctPositions: Coords[][] = positions[debuff()?.key!] || [];
     let score = 0;
 
-    console.log(correctPositions);
+    if (clicks().length !== correctPositions.length) {
+      setStreak(0);
+      if (isTimerActive()) resetTimer();
+      return;
+    }
 
     clicks().forEach((c, idx) => {
       let closeDist = Infinity,

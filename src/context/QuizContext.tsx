@@ -2,12 +2,12 @@ import { createContext, createSignal, useContext } from "solid-js";
 import type { ParentComponent } from "solid-js";
 
 const debuffs = [
-  { key: "Dark_Water_III", icon: "/imgs/Dark_Water_III.png" },
-  { key: "Shadoweye", icon: "/imgs/Shadoweye.png" },
-  { key: "16_Dark_Blizzard_III", icon: "/imgs/Dark_Blizzard_III.png", timer: 16 },
-  { key: "29_Dark_Blizzard_III", icon: "/imgs/Dark_Blizzard_III.png", timer: 29 },
-  { key: "16_Dark_Fire_III", icon: "/imgs/Dark_Fire_III.png", timer: 16 },
-  { key: "29_Dark_Fire_III", icon: "/imgs/Dark_Fire_III.png", timer: 29 },
+  { key: "Dark_Water_III", icon: "imgs/Dark_Water_III.png" },
+  { key: "Shadoweye", icon: "imgs/Shadoweye.png" },
+  { key: "16_Dark_Blizzard_III", icon: "imgs/Dark_Blizzard_III.png", timer: 16 },
+  { key: "29_Dark_Blizzard_III", icon: "imgs/Dark_Blizzard_III.png", timer: 29 },
+  { key: "16_Dark_Fire_III", icon: "imgs/Dark_Fire_III.png", timer: 16 },
+  { key: "29_Dark_Fire_III", icon: "imgs/Dark_Fire_III.png", timer: 29 },
 ];
 
 const positions = {

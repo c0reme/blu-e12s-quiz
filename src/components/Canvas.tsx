@@ -87,7 +87,7 @@ const Canvas = () => {
   };
 
   const placePlayerIcon = (point: Coords, label = "") => {
-    fabric.FabricImage.fromURL("/imgs/Player.png").then((img) => {
+    fabric.FabricImage.fromURL("imgs/Player.png").then((img) => {
       img.set({
         left: point.x - 16,
         top: point.y - 16,

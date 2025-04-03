@@ -5,7 +5,7 @@ import solid from "@astrojs/solid-js";
 
 export default defineConfig({
   site: "https://c0reme.github.io",
-  base: "blu-e12s-quiz",
+  base: "/blu-e12s-quiz",
   vite: { plugins: [tailwind()] },
   integrations: [solid()],
 });

@@ -1,0 +1,40 @@
+---
+import SEO from "../components/layout/SEO.astro";
+import Arena from "../components/Arena";
+import "../styles/global.css";
+
+const defaults = {
+  title: "Basic Relativity Quiz",
+  name: "Blue Mage - E12S Phase 2",
+  description:
+    "Test your skills for a mechanic in Phase 2 of Eden's Promise (Savage). How skilled are you?",
+  image: { src: new URL("/favicon.png", Astro.site).href, alt: "Debuff icon" },
+} as const;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <SEO {...defaults} />
+  </head>
+  <body class="h-screen bg-white dark:bg-black text-stone-900 dark:text-stone-200">
+    <div class="max-w-lg items-center justify-center text-center space-y-6 py-8 mx-2 sm:mx-auto">
+      <div class="bg-stone-50 dark:bg-stone-950 p-6 rounded-2xl">
+        <Arena client:only="solid" />
+        <footer class="text-sm space-y-1">
+          <p>
+            This quiz creation was inspired by <a
+              target="_blank"
+              href="https://www.dodsrv.com/BlueGavelQuiz/"
+              class="text-blue-600 dark:text-blue-500 hover:text-blue-800 hover:underline"
+            >
+              Blue Gavel Quiz
+            </a>
+          </p>
+        </footer>
+      </div>
+    </div>
+  </body>
+</html>

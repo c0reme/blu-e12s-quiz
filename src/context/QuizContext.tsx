@@ -184,7 +184,7 @@ export const QuizProvider: ParentComponent = (props) => {
       }
     });
 
-    if (score > 0) setStreak(streak() + 1);
+    if (score >= correctPositions.length) setStreak(streak() + 1);
     else setStreak(0);
   };
 

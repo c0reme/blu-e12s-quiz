@@ -4,8 +4,8 @@ import * as fabric from "fabric";
 
 const Canvas = () => {
   const {
-    clicks,
     debuff,
+    setStreak,
     setClicks,
     checkAccuracy,
     selectRandomDebuff,
@@ -112,6 +112,7 @@ const Canvas = () => {
 
   const handleQuizButton = () => {
     if (isDone()) checkAccuracy();
+    else setStreak(0);
 
     setDoneStatus(false);
     setClicks([]);
